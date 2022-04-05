@@ -1,0 +1,2 @@
+kind: Deployment
+name: {{ .Values.name }}

@@ -6,6 +6,18 @@ module "example" {
   zone         = var.AWS_REGION   // Cluster Zone
 }
 
+resource "helm_release" "nginx_ingress" {
+  name       = "nginx-ingress-controller"
+
+  repository = "https://charts.bitnami.com/bitnami"
+  chart      = "nginx-ingress-controller"
+
+  set {
+    name  = "service.type"
+    value = "ClusterIP"
+  }
+}
+
 output "endpoint" {
   value = module.example.aws_eks_cluster_endpoint
 }
@@ -20,4 +32,9 @@ output "eks-access" {
 
 output "eks-secret" {
   value = base64encode(nonsensitive(module.example.eks-secret))
+}
+
+output "rds_address" {
+  sensitive = false
+  value     = module.example.rds_address
 }

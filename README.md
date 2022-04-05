@@ -60,6 +60,10 @@ kube-system   kube-proxy-whcsk           1/1     Running   0          9m43s
 
 ### Deploying application
 
+```shell
+docker push tdiksmel/terraform-aws-example-collection:tagname
+```
+
 ### Problems, what needs attention
 
 * Tags are not setted (Very bad to use this)

@@ -15,7 +15,13 @@ func main() {
 	// I've set up a database on my local machine using phpmyadmin.
 	// The database is called testDb
 
-	conn := os.Getenv("DB_USER") + ":" + os.Getenv("DB_PASS") + "@tcp(" + os.Getenv("DB_PASS") + ":" + os.Getenv("DB_PORT") + ")/test"
+	fmt.Printf("DB_USER: %+v\n", os.Getenv("DB_USER"))
+	fmt.Printf("DB_PASS: %+v\n", os.Getenv("DB_PASS"))
+	fmt.Printf("DB_HOST: %+v\n", os.Getenv("DB_HOST"))
+	fmt.Printf("DB_PORT: %+v\n", os.Getenv("DB_PORT"))
+	fmt.Printf("DB_NAME: %+v\n", os.Getenv("DB_NAME"))
+
+	conn := os.Getenv("DB_USER") + ":" + os.Getenv("DB_PASS") + "@tcp(" + os.Getenv("DB_HOST") + ":" + os.Getenv("DB_PORT") + ")/" + os.Getenv("DB_NAME")
 	db, err := sql.Open("mysql", conn)
 
 	// if there is an error opening the connection, handle it
