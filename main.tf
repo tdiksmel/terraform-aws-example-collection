@@ -6,9 +6,9 @@ module "example" {
   zone         = var.AWS_REGION   // Cluster Zone
 }
 
-# output "endpoint" {
-#   value = module.example.aws_eks_cluster_endpoint
-# }
+output "endpoint" {
+  value = module.example.aws_eks_cluster_endpoint
+}
 
 output "vpc" {
   value = module.example.vpc_id

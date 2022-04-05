@@ -34,3 +34,34 @@ Terraform v1.0.3
     * **AWS IAM Role** will be created for *Kubernetes* autoscaling
 * **AWS Kubernetes Cluster** will be created with public and private endpoint
 * **AWS Kubernetes Cluster Node Group** will be created with two `t2.nano` nodes
+* **AWS KMS Key** kms key for crypting
+* **AWS RDS Subnet Group** linked to private subnets
+* **AWS RDS Instance** database instance
+
+### Connect to your cluster
+
+```shell
+» aws eks update-kubeconfig --name example --region ${TF_VAR_AWS_REGION}
+```
+
+### Tesing cluster works
+
+```shell
+» kubectl get pods -A
+NAMESPACE     NAME                       READY   STATUS    RESTARTS   AGE
+kube-system   aws-node-42nx9             1/1     Running   0          9m43s
+kube-system   aws-node-h9nzt             1/1     Running   0          9m52s
+kube-system   coredns-66cb55d4f4-ht6g4   1/1     Running   0          18m
+kube-system   coredns-66cb55d4f4-nzlvf   1/1     Running   0          18m
+kube-system   kube-proxy-pl6v4           1/1     Running   0          9m52s
+kube-system   kube-proxy-whcsk           1/1     Running   0          9m43s
+```
+
+
+### Deploying application
+
+### Problems, what needs attention
+
+* Tags are not setted (Very bad to use this)
+* Resource named `example`
+* RDS database creating outside of **AWS RDS Cluster**
