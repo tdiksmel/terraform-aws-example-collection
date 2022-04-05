@@ -6,16 +6,12 @@ module "example" {
   zone         = var.AWS_REGION   // Cluster Zone
 }
 
-resource "helm_release" "nginx_ingress" {
-  name       = "nginx-ingress-controller"
+resource "helm_release" "example" {
+  name       = "example"
+  chart      = "./helm"
+  namespace = "example"
+  create_namespace = true
 
-  repository = "https://charts.bitnami.com/bitnami"
-  chart      = "nginx-ingress-controller"
-
-  set {
-    name  = "service.type"
-    value = "ClusterIP"
-  }
 }
 
 output "endpoint" {
