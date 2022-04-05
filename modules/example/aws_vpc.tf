@@ -7,5 +7,5 @@ resource "aws_vpc" "eks" {
 }
 
 output "vpc_id" {
-    value = aws_vpc.eks.id
+  value = aws_vpc.eks.id
 }
