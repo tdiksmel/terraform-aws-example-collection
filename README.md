@@ -58,7 +58,7 @@ kube-system   kube-proxy-whcsk           1/1     Running   0          9m43s
 ```
 
 
-### Deploying application
+### Building application
 
 ```shell
 docker push tdiksmel/terraform-aws-example-collection:tagname
@@ -69,3 +69,4 @@ docker push tdiksmel/terraform-aws-example-collection:tagname
 * Tags are not setted (Very bad to use this)
 * Resource named `example`
 * RDS database creating outside of **AWS RDS Cluster**
+* No S3, Redis and etc. created
