@@ -18,3 +18,13 @@ output "rds_address" {
   sensitive = false
   value     = aws_db_instance.example.address
 }
+
+output "rds_user" {
+  sensitive = false
+  value     = aws_db_instance.example.username
+}
+
+output "rds_pass" {
+  sensitive = false
+  value     = aws_db_instance.example.password
+}

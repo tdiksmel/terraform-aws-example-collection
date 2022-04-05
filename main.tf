@@ -14,6 +14,30 @@ resource "helm_release" "example" {
   timeout = 60
   force_update = true
 
+  set {
+    name = "DB_HOST"
+    value = module.example.rds_address
+  }
+
+  set {
+    name = "DB_NAME"
+    value = "example"
+  }
+
+  set {
+    name = "DB_PORT"
+    value = "3306"
+  }
+
+  set {
+    name = "DB_USER"
+    value = module.example.rds_user
+  }
+
+  set {
+    name = "DB_PASS"
+    value = module.example.rds_pass
+  }
 }
 
 output "endpoint" {
@@ -30,9 +54,4 @@ output "eks-access" {
 
 output "eks-secret" {
   value = base64encode(nonsensitive(module.example.eks-secret))
-}
-
-output "rds_address" {
-  sensitive = false
-  value     = module.example.rds_address
 }
