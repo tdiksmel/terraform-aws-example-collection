@@ -32,3 +32,5 @@ Terraform v1.0.3
 * **AWS IAM User** will be created for kubernetes administration.
     * Credetials will be created automaticaly.
     * **AWS IAM Role** will be created for *Kubernetes* autoscaling
+* **AWS Kubernetes Cluster** will be created with public and private endpoint
+* **AWS Kubernetes Cluster Node Group** will be created with two `t2.nano` nodes
