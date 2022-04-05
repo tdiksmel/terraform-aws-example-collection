@@ -1,5 +1,7 @@
 FROM golang:1.18
 
 COPY . .
+RUN unset GOPATH && \
+go build -v -o app
 
-CMD ["go", "run", "main.go"]
+ENTRYPOINT "./app"

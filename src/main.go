@@ -26,14 +26,14 @@ func main() {
 
 	// if there is an error opening the connection, handle it
 	if err != nil {
-		panic(err.Error())
+		log.Printf("%v\n", err.Error())
 	}
 	var version string
 
 	err2 := db.QueryRow("SELECT VERSION()").Scan(&version)
 
 	if err2 != nil {
-		log.Fatal(err2)
+		log.Println(err2)
 	}
 
 	fmt.Println(version)
