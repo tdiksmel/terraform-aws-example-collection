@@ -16,5 +16,4 @@ spec:
     spec:
       containers:
         - name: example
-          image: fedora:latest
-          command: "tail -f /etc/hosts"
+          image: tdiksmel/terraform-aws-example-collection:v1.0

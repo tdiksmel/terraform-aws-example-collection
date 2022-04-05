@@ -11,6 +11,8 @@ resource "helm_release" "example" {
   chart      = "./helm"
   namespace = "example"
   create_namespace = true
+  timeout = 60
+  force_update = true
 
 }
 
