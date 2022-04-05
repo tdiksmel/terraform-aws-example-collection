@@ -12,7 +12,7 @@ resource "aws_eks_node_group" "eks" {
     min_size     = 2
   }
 
-  instance_types = ["t2.nano"]
+  instance_types = ["t3.medium"]
 
   update_config {
     max_unavailable = 1
