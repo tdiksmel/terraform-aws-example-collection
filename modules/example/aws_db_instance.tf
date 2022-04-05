@@ -10,6 +10,7 @@ resource "aws_db_instance" "example" {
   skip_final_snapshot  = true
   apply_immediately = true
   storage_encrypted = true
+  vpc_security_group_ids  = [aws_security_group.eks.id]
   kms_key_id = aws_kms_key.example.arn
   db_subnet_group_name = aws_db_subnet_group.example.name
 }
